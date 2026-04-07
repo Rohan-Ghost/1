@@ -21,14 +21,14 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{AKIAVT6NRNAQ7II3ZLMG}}
-          aws-secret-access-key: ${{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}}
-          aws-region: ${{us-east-1}}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Sync Data from S3
         run: |
           mkdir -p s3-data
-          aws s3 sync s3://${{zappora-generated-code}} ./s3-data --exact-timestamps
+          aws s3 sync s3://${{ secrets.S3_BUCKET_NAME }} ./s3-data --exact-timestamps
 
       - name: Check for Changes and Commit
         run: |
