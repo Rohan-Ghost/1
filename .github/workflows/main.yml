@@ -28,12 +28,8 @@ jobs:
       - name: Sync Data from S3
         run: |
           mkdir -p s3-data
-          aws s3 sync s3://zappora-generated-code ./s3-data 
-          --exact-timestamps \
-          --exclude "*/node_modules/*" \
-            --exclude "*/.next/*" \
-            --exclude "*/dist/*" \
-            --exclude "*/build/*"
+          aws s3 sync s3://zappora-generated-code ./s3-data --exact-timestamps --exclude "*/node_modules/*" --exclude "*/.next/*" --exclude "*/dist/*" --exclude "*/build/*"
+          
 
       - name: Check for Changes and Commit
         run: |
