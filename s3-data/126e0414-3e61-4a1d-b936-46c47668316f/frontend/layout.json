@@ -1,0 +1,12 @@
+{
+  "blueprintId": "fallback",
+  "structure": {
+    "root": ".",
+    "entry": "src/index.tsx",
+    "directories": [
+      "src",
+      "src/components",
+      "src/pages"
+    ]
+  }
+}
